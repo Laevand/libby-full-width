@@ -2,7 +2,7 @@
 
 A Chrome extension that makes Libby's magazine reader fill your entire screen.
 
-Libby hard-caps magazine layout at ~1320px wide — regardless of your monitor. On a high-res display, most of your screen is gray padding. This extension removes those constraints, and the app re-renders content natively at the larger size. No blurry upscaling.
+Libby hard-caps magazine layout at ~1320px wide — regardless of your monitor. On a high-res display, most of your screen is white padding. This extension removes those constraints, and the app re-renders content natively at the larger size. No blurry upscaling.
 
 **2× more content on screen** on a high-res display. Best for large and ultrawide monitors.
 
