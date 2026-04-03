@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Libby Full Width Reader",
+  "version": "1.0",
+  "description": "Removes max-width constraints on Libby magazine viewer",
+  "content_scripts": [
+    {
+      "matches": ["*://libbyapp.com/*", "*://*.libbyapp.com/*"],
+      "css": ["override.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ]
+}
