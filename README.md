@@ -1,8 +1,10 @@
 # Libby Full Width Reader
 
-A Chrome extension that removes the width and height constraints on the Libby magazine reader, allowing magazines to fill your entire screen.
+A Chrome extension that makes Libby's magazine reader fill your entire screen.
 
-If you read magazines on [libbyapp.com](https://libbyapp.com) with a large or ultrawide monitor, you've probably noticed the reader caps the layout at ~1320px — wasting most of your screen. This extension fixes that.
+Libby hard-caps magazine layout at ~1320px wide — regardless of your monitor. On a high-res display, most of your screen is gray padding. This extension removes those constraints, and the app re-renders content natively at the larger size. No blurry upscaling.
+
+**2× more content on screen** on a high-res display. Best for large and ultrawide monitors.
 
 ![Before and After](screenshots/comparison.png)
 
@@ -18,13 +20,20 @@ If you read magazines on [libbyapp.com](https://libbyapp.com) with a large or ul
 
 Two CSS rules. That's it.
 
-- Removes `max-width` on the main container so the app's layout engine fills the full viewport width
-- Overrides `max-height` to use the actual available screen height instead of the app's conservative default
+```css
+.book-pillar {
+  max-width: none !important;
+}
 
-The app re-renders content natively at the larger size — no blurry upscaling, no resolution loss.
+.book-bounds {
+  max-height: calc(100vh - 72px) !important;
+}
+```
+
+Libby's layout engine reads container dimensions at startup. Because CSS loads before the app initializes, it computes the layout using our overridden values natively — the content is actually rendered at the larger size, not stretched.
 
 ## Notes
 
 - Built for magazine reading (pre-paginated spreads). Behavior with ebooks may vary.
-- The `72px` height offset in `override.css` accounts for Libby's header bar. If the bottom of your magazine is slightly clipped, try adjusting this value.
+- The `72px` height offset accounts for Libby's header bar. If the bottom of your magazine is slightly clipped, try adjusting this value.
 - Tested on Chrome. Should work on any Chromium-based browser (Edge, Brave, Arc, etc.).
