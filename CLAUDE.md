@@ -10,7 +10,7 @@ A personal Chrome extension (Manifest V3) that removes the max-width constraint 
 
 - **manifest.json** — Extension manifest. Content scripts inject into all frames (`all_frames: true`, `match_about_blank: true`) because the Libby reader lives inside a nested iframe (dewey-* frame), not the top-level document.
 - **override.css** — CSS overrides with `!important` to remove container constraints (e.g., `max-width` on `.book-pillar`).
-- **content.js** — JS that finds `.book-pillar` (the width-constrained container) and applies a CSS `transform: scale()` to fill the viewport. Uses a MutationObserver to wait for the element if it hasn't rendered yet.
+- **content.js** — JS that handles height fitting after CSS expands the width. Waits for `.scene` via MutationObserver, then applies `transform: scale()` on `.book-bounds` to fit within viewport height.
 
 ## Key Libby DOM Details
 
@@ -21,6 +21,10 @@ A personal Chrome extension (Manifest V3) that removes the max-width constraint 
 - `iframe` inside sheets — Actual page content, rendered at 960x1285 native with `transform: scale(0.6875)` to fit the constrained layout
 
 The app's JS continuously sets inline styles on these elements, so CSS `!important` or transform-based scaling is needed rather than directly modifying inline styles (which get overwritten).
+
+## Important Constraints
+
+- **Never compromise resolution.** Do not use `transform: scale()` to enlarge content — it stretches pixels and looks blurry on high-DPI displays. Instead, use CSS overrides (e.g., removing `max-width`) so the app's layout engine re-renders content at the larger size natively.
 
 ## Development Workflow
 

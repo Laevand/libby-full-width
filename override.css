@@ -1,3 +1,7 @@
 .book-pillar {
   max-width: none !important;
 }
+
+.book-bounds {
+  max-height: calc(100vh - 72px) !important;
+}
