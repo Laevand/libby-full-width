@@ -9,8 +9,7 @@ A personal Chrome extension (Manifest V3) that removes the max-width constraint 
 ## Architecture
 
 - **manifest.json** — Extension manifest. Content scripts inject into all frames (`all_frames: true`, `match_about_blank: true`) because the Libby reader lives inside a nested iframe (dewey-* frame), not the top-level document.
-- **override.css** — CSS overrides with `!important` to remove container constraints (`max-width` on `.book-pillar`, `max-height` on `.book-bounds`). This is the core of the extension — CSS is applied before the app initializes, so its layout engine computes dimensions using our overridden values natively.
-- **content.js** — Minimal JS, currently just a debug log. Reserved for any future logic that CSS alone can't handle.
+- **override.css** — CSS overrides with `!important` to remove container constraints (`max-width` on `.book-pillar`, `max-height` on `.book-bounds`). This is the entire extension — CSS is applied before the app initializes, so its layout engine computes dimensions using our overridden values natively.
 
 ## Key Libby DOM Details
 
