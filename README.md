@@ -10,6 +10,10 @@ Libby hard-caps magazine layout at ~1320px wide — regardless of your monitor. 
 
 ## Install
 
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/bojpmhpdihcommlljjcegaclimfkgcjk?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/libby-full-width-reader/bojpmhpdihcommlljjcegaclimfkgcjk)
+[![Users](https://img.shields.io/chrome-web-store/users/bojpmhpdihcommlljjcegaclimfkgcjk)](https://chromewebstore.google.com/detail/libby-full-width-reader/bojpmhpdihcommlljjcegaclimfkgcjk)
+[![Rating](https://img.shields.io/chrome-web-store/rating/bojpmhpdihcommlljjcegaclimfkgcjk)](https://chromewebstore.google.com/detail/libby-full-width-reader/bojpmhpdihcommlljjcegaclimfkgcjk)
+
 **[Install from the Chrome Web Store →](https://chromewebstore.google.com/detail/libby-full-width-reader/bojpmhpdihcommlljjcegaclimfkgcjk)** (recommended)
 
 Or load it unpacked from source:
